@@ -1,0 +1,77 @@
+.container {
+  padding: 1rem;
+}
+
+.timeline {
+  margin-top: 1rem;
+}
+
+.activityCard {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--background-card);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.time {
+  min-width: 100px;
+  text-align: center;
+  padding-top: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.details {
+  flex: 1;
+}
+
+.details h3 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.details p {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+}
+
+.preparation {
+  background: var(--background);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.preparation h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.preparation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.preparation li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.preparation input[type="checkbox"] {
+  margin: 0;
+}
+
+.noActivities {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+  background: var(--background);
+  border-radius: 8px;
+}

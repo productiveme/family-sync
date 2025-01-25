@@ -1,40 +1,103 @@
-# Welcome to Remix!
+# Modern PWA Template
 
-- ð [Remix docs](https://remix.run/docs)
+A modern Progressive Web App template built with Preact, GraphQL, and Vite. This template includes real-time subscriptions, offline support, and a modern development setup.
 
-## Development
+## Features
 
-Run the dev server:
+- ⚡️ **Vite** - Lightning fast build tool
+- 🔄 **PWA Support** - Full Progressive Web App capabilities with install prompt
+- ⚛️ **Preact** - Lightweight React alternative
+- 📱 **Responsive Layout** - Mobile-first design with Tailwind CSS
+- 🚀 **GraphQL** - Full GraphQL setup with queries, mutations, and subscriptions
+- 🔄 **State Management** - Zustand for simple and effective state management
+- 🎯 **Routing** - Client-side routing with Wouter
+- 💅 **Styling** - Tailwind CSS for utility-first styling
+- 🔌 **Offline Support** - Service worker and offline functionality
+- 🏗️ **Clean Architecture** - Functional approach with clear separation of concerns
 
-```shellscript
+## Project Structure
+
+```
+├── client/
+│   ├── config/           # App configuration
+│   ├── domain/          # Business logic and state management
+│   ├── infrastructure/  # Technical implementations
+│   └── presentation/    # UI components and pages
+├── server/
+│   ├── config/         # Server configuration
+│   ├── services/       # Core business logic
+│   ├── controllers/    # Request handlers
+│   ├── infrastructure/ # Server setup and technical implementations
+│   └── schema.js       # GraphQL schema
+└── package.json
+```
+
+## Quick Start
+
+1. Install dependencies:
+```bash
+npm install
+```
+2. Set up basic configuration
+```bash
+node setup
+```
+3. Start development server
+```bash
 npm run dev
 ```
 
-## Deployment
+This will:
+- Install all required dependencies
+- Start both the client and server in development mode
+- Open the app in your default browser
 
-First, build your app for production:
+## Available Scripts
 
-```sh
-npm run build
+- `npm run dev` - Start development server (both client and server)
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
+- `npm run format` - Format code with Prettier
+
+## Environment Variables
+
+Create a `.env` file in the root:
+
+```env
+VITE_APP_NAME="Modern PWA"
+VITE_PORT=3001
+VITE_PORT_GQL=3002
 ```
 
-Then run the app in production mode:
+## Architecture
 
-```sh
-npm start
-```
+The project follows a functional clean architecture approach:
 
-Now you'll need to pick a host to deploy it to.
+- **No classes** - Uses plain functions and factory functions
+- **Dependency Injection** - Via factory functions and closures
+- **Pure Functions** - Where possible for predictable behavior
+- **Immutability** - Returns frozen objects to prevent mutations
+- **Clear Separation** - Distinct layers for different concerns
+- **Testability** - Easy to test with injectable dependencies
 
-### DIY
+## PWA Features
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
+- Installable as standalone app
+- Works offline
+- Smart install prompt with persistence
+- Push notification support
+- Automatic updates
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+Uses Tailwind CSS with:
+- Custom color scheme
+- Dark mode support
+- Responsive design
+- Component-based styles
+
+## License
+
+MIT

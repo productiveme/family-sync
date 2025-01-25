@@ -1,0 +1,88 @@
+.container {
+  padding: 1rem;
+  background: var(--background-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sendButton {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  padding: 1rem;
+  background: var(--background);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stat h3 {
+  margin: 0 0 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.stat p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.preparation {
+  margin-top: 2rem;
+}
+
+.prepItem {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--background);
+  border-radius: 4px;
+}
+
+.prepItem h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.prepItem p {
+  margin: 0 0 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.checklistItem {
+  margin: 0.25rem 0;
+  color: var(--text);
+}
+
+.lastSent {
+  margin-top: 2rem;
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
