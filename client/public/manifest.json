@@ -1,9 +1,9 @@
 {
-  "name": "Modern PWA",
-  "short_name": "PWA",
-  "description": "Modern PWA with Preact",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "name": "FamilySync",
+  "short_name": "FamilySync",
+  "description": "Organize your family's activities, studies, and projects in one place",
+  "theme_color": "#E2DBBE",
+  "background_color": "#D5D6AA",
   "display": "standalone",
   "start_url": "/",
   "icons": [

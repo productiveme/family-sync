@@ -17,11 +17,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#3b82f6',
-        secondary: '#6b7280',
+        DEFAULT: '#E2DBBE',
+        DEFAULT: '#D5D6AA',
         accent: {
-          DEFAULT: '#f43f5e',
+          DEFAULT: '#9DBBAE',
         },
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
         background: {
           DEFAULT: 'var(--background)',
           card: 'var(--background-card)',

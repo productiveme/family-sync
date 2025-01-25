@@ -9,6 +9,8 @@
     --text-primary: #111827;
     --text-secondary: #4b5563;
     --border-color: #e5e7eb;
+    --primary: #3b82f6;
+    --secondary: #6b7280;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -18,6 +20,8 @@
       --text-primary: #f9fafb;
       --text-secondary: #d1d5db;
       --border-color: #374151;
+      --primary: #3b82f6;
+      --secondary: #6b7280;
     }
   }
 
