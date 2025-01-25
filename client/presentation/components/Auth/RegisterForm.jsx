@@ -2,23 +2,25 @@ import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import { useAuth } from '../../../domain/hooks/useAuth';
 
-const LoginForm = ({ onSuccess, switchView }) => {
+const RegisterForm = ({ onSuccess, switchView }) => {
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
-    password: ''
+    password: '',
+    role: 'parent'
   });
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { register } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     try {
-      await login(formData);
+      await register(formData);
       onSuccess();
     } catch (err) {
-      setError(err.message || 'Failed to login. Please try again.');
+      setError(err.message || 'Failed to register. Please try again.');
     }
   };
 
@@ -30,6 +32,23 @@ const LoginForm = ({ onSuccess, switchView }) => {
         </div>
       )}
       
+      <div className="space-y-1">
+        <label 
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Full Name
+        </label>
+        <input
+          id="name"
+          type="text"
+          value={formData.name}
+          onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          required
+        />
+      </div>
+
       <div className="space-y-1">
         <label 
           htmlFor="email"
@@ -61,28 +80,48 @@ const LoginForm = ({ onSuccess, switchView }) => {
           onChange={e => setFormData(prev => ({ ...prev, password: e.target.value }))}
           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           required
+          minLength={8}
         />
       </div>
 
+      <div className="space-y-1">
+        <label 
+          htmlFor="role"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Role
+        </label>
+        <select
+          id="role"
+          value={formData.role}
+          onChange={e => setFormData(prev => ({ ...prev, role: e.target.value }))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          required
+        >
+          <option value="parent">Parent</option>
+          <option value="child">Child</option>
+        </select>
+      </div>
+
       <button 
-        type="submit" 
+        type="submit"
         className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
-        Login
+        Register
       </button>
 
       <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-        Don't have an account?{' '}
+        Already have an account?{' '}
         <button 
           type="button" 
           onClick={switchView}
           className="text-blue-600 hover:text-blue-500 font-medium dark:text-blue-400"
         >
-          Register here
+          Login here
         </button>
       </p>
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
