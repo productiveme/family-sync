@@ -1,48 +1,47 @@
-import { h } from 'preact'
-import { useEffect } from 'preact/hooks'
-import { useLocation } from 'wouter'
-import useUserStore from '../../domain/store/userStore'
-import styles from './Home.module.css'
+import { h } from 'preact';
+import { useEffect } from 'preact/hooks';
+import { useLocation } from 'wouter';
+import useUserStore from '../../domain/store/userStore';
+import styles from './Home.module.css';
 
 export const Home = () => {
-  const [location, navigate] = useLocation()
-  const { currentUser } = useUserStore()
+  const [location, navigate] = useLocation();
+  const { currentUser } = useUserStore();
 
   const features = [
     {
       title: 'Multi-User Calendar',
-      description:
-        'Manage schedules for the whole family with color-coded activities',
+      description: 'Manage schedules for the whole family with color-coded activities',
       icon: '📅',
-      path: '/calendar',
+      path: '/calendar'
     },
     {
       title: 'Study Planning',
       description: 'Smart study time allocation and progress tracking',
       icon: '📚',
-      path: '/study',
+      path: '/study'
     },
     {
       title: 'Activity Management',
       description: 'Track preparations and materials for each activity',
       icon: '📝',
-      path: '/activities',
+      path: '/activities'
     },
     {
       title: 'Weekly Summary',
       description: 'Get automated email summaries of upcoming schedules',
       icon: '📊',
-      path: '/summary',
-    },
-  ]
-
-  const handleFeatureClick = path => {
-    if (!currentUser) {
-      navigate('/login')
-    } else {
-      navigate(path)
+      path: '/summary'
     }
-  }
+  ];
+
+  const handleFeatureClick = (path) => {
+    if (!currentUser) {
+      navigate('/login');
+    } else {
+      navigate(path);
+    }
+  };
 
   return (
     <div class={styles.container}>
@@ -107,35 +106,23 @@ export const Home = () => {
           <div class={styles.infoGrid}>
             <div class={styles.infoCard}>
               <h3>🔒 Secure Family Profiles</h3>
-              <p>
-                Create separate profiles for each family member with customized
-                settings and privacy controls.
-              </p>
+              <p>Create separate profiles for each family member with customized settings and privacy controls.</p>
             </div>
             <div class={styles.infoCard}>
               <h3>📱 Access Anywhere</h3>
-              <p>
-                Use on any device with our responsive web interface and offline
-                capabilities.
-              </p>
+              <p>Use on any device with our responsive web interface and offline capabilities.</p>
             </div>
             <div class={styles.infoCard}>
               <h3>🔔 Smart Reminders</h3>
-              <p>
-                Never miss an activity with automated reminders and preparation
-                checklists.
-              </p>
+              <p>Never miss an activity with automated reminders and preparation checklists.</p>
             </div>
             <div class={styles.infoCard}>
               <h3>📈 Progress Tracking</h3>
-              <p>
-                Monitor study progress and project completion with detailed
-                analytics.
-              </p>
+              <p>Monitor study progress and project completion with detailed analytics.</p>
             </div>
           </div>
         </section>
       )}
     </div>
-  )
-}
+  );
+};
