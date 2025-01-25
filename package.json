@@ -14,6 +14,8 @@
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --ext .js,.jsx --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -27,7 +29,15 @@
     "graphql-yoga": "^5.1.1",
     "@graphql-tools/schema": "^10.0.2",
     "ws": "^8.15.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^6.3.0",
+    "workbox-core": "^7.0.0",
+    "workbox-precaching": "^7.0.0",
+    "workbox-routing": "^7.0.0",
+    "workbox-strategies": "^7.0.0",
+    "workbox-cacheable-response": "^7.0.0",
+    "workbox-expiration": "^7.0.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.7.0",
@@ -46,6 +56,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.1.1",
     "husky": "^8.0.0",
-    "lint-staged": "^15.2.0"
+    "lint-staged": "^15.2.0",
+    "@playwright/test": "^1.40.0"
   }
 }

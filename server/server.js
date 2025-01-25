@@ -1,5 +1,5 @@
 import config from './config/index.js';
-import { db } from './db.js';
+import { initializeDatabase } from './config/database.js';
 import { typeDefs } from './schema.js';
 import createPubSubService from './infrastructure/pubsub.js';
 import createPostService from './services/post.service.js';
@@ -9,25 +9,39 @@ import createCommentController from './controllers/comment.controller.js';
 import createResolvers from './resolvers.js';
 import createGraphQLServer from './infrastructure/server.js';
 
-// Initialize services
-const pubSub = createPubSubService();
-const postService = createPostService(db);
-const commentService = createCommentService(db, pubSub);
+async function startServer() {
+  try {
+    // Initialize MongoDB connection
+    await initializeDatabase();
 
-// Initialize controllers
-const postController = createPostController(postService, commentService);
-const commentController = createCommentController(commentService);
+    // Initialize services
+    const pubSub = createPubSubService();
+    const postService = createPostService();
+    const commentService = createCommentService();
 
-// Create resolvers
-const resolvers = createResolvers({ postController, commentController });
+    // Initialize controllers
+    const postController = createPostController(postService, commentService);
+    const commentController = createCommentController(commentService);
 
-// Initialize server
-const server = createGraphQLServer({
-  typeDefs,
-  resolvers,
-  config,
-  context: { pubSub }
-});
+    // Create resolvers
+    const resolvers = createResolvers({ postController, commentController });
 
-// Start server
-server.start();
+    // Initialize server
+    const server = createGraphQLServer({
+      typeDefs,
+      resolvers,
+      config,
+      context: { pubSub }
+    });
+
+    // Start server
+    server.start();
+    
+    console.log('Server started successfully');
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();
