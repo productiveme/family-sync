@@ -19,11 +19,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@fastify/cors": "^10",
     "@graphql-tools/schema": "^10.0.2",
+    "@urql/core": "^5.0.0",
     "@urql/preact": "^4.0.4",
     "dotenv": "^16.3.1",
     "fastify": "*",
-    "fastify-cors": "*",
     "graphql": "^16.8.1",
     "graphql-ws": "^5.14.3",
     "graphql-yoga": "^5.1.1",
